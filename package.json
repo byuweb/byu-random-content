@@ -1,0 +1,25 @@
+{
+  "name": "byu-random-content",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=6.10.0"
+  },
+  "description": "byu-random-content",
+  "main": "byu-random-content.js",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "byu-web-component-utils": "^0.4.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "byu-web-component-build": "^0.2.3",
+    "gulp": "^3.9.1"
+  }
+}

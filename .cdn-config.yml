@@ -1,0 +1,12 @@
+---
+name: byu-random-content
+description: byu-random-content
+resources:
+  - src: dist/**
+    dest: ./
+entrypoints:
+  "byu-random-content.js": 'Examines browser support and downloads the appropriate component bundle'
+  "byu-random-content.min.js": 'Minified - Examines browser support and downloads the appropriate component bundle'
+  "byu-random-content.css": 'Main CSS file'
+  "byu-random-content.min.css": 'Main CSS file'
+docs: https://github.com/byuweb/byu-random-content
