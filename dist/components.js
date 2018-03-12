@@ -140,12 +140,12 @@ function matchesSelector(el, selector) {
 class ByuRandomContent extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({mode: 'open'});
+    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
     //This will stamp our template for us, then let us perform actions on the stamped DOM.
-    __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-random-content', __WEBPACK_IMPORTED_MODULE_0__byu_random_content_html___default.a, () => {      
+    __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-random-content', __WEBPACK_IMPORTED_MODULE_0__byu_random_content_html___default.a, () => {
       setupSlotListeners(this);
     });
   }
@@ -158,7 +158,7 @@ class ByuRandomContent extends HTMLElement {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    switch(attr) {
+    switch (attr) {
     }
   }
 }
@@ -169,37 +169,41 @@ window.ByuRandomContent = ByuRandomContent;
 // -------------------- Helper Functions --------------------
 
 function setupSlotListeners(component) {
-  let slot = component.shadowRoot.querySelector('#content-container');
+  let slot = component.shadowRoot.querySelector('#content-slot');
 
   //this will listen to changes to the contents of our <slot>, so we can take appropriate action
   slot.addEventListener('slotchange', () => {
     console.log('here');
-    chooseRandomChild(slot);
+    for (var i = 0; i < component.children.length; i++) {
+      if (component.children[i].tagName.toUpperCase() != "TEMPLATE") {
+        var message = 'byu-random-content error: this component only allows template tags.'; 
+        console.log(message);
+        component.innerHTML = message;
+        throw new DOMException(message);
+        return;
+      }
+    }
+    chooseRandomChild(component);
   }, false);
 }
 
-function chooseRandomChild(slot) {
-  var children = slot.assignedNodes().filter(n => n.nodeType === Node.ELEMENT_NODE);
-
-  console.log(children);
-  var index = getRandomInt(children.length);
-
-  // prevent getting the same content 2x in a row
-  while (index == localStorage["last-random-content-index"])
-  {
-    index = getRandomInt(children.length);
-  }
-
-  setActiveIndex(index, children);
+function chooseRandomChild(component) {
+  var index = getRandomInt(component.children.length);
+  setActiveIndex(index, component);
 }
 
-function setActiveIndex(index, children) {
-  for (var i = 0; i < children.length; i++)
-  {
-    children[i].style.display = "none";
-  }
-  children[index].style.display = "";
-  console.log(children[index]);
+function setActiveIndex(index, component) {
+
+  var children = component.children;
+  console.log(children);
+
+  var tpl = children[index];
+  console.log(tpl);
+
+  var container = component.shadowRoot.querySelector('#content-container');
+  var clone = tpl.content.cloneNode(true);
+  container.appendChild(clone);
+
   localStorage["last-random-content-index"] = index;
 }
 
@@ -573,7 +577,7 @@ module.exports = sum;
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(7) + "</style> <div class=\"root slot-container\"> <slot id=\"content-container\"> No content was specified </slot> </div>";
+module.exports = "<style>" + __webpack_require__(7) + "</style> <div class=\"root slot-container\"> <slot id=\"content-slot\"> No content was specified </slot> <div id=\"content-container\"> </div> </div>";
 
 /***/ })
 /******/ ]);
