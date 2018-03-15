@@ -57,7 +57,7 @@
       </byu-hero-banner>
     </template>
     <template>
-      <byu-hero-banner id="hero" image-source="side-image.jpg" class="side-image">
+      <byu-hero-banner id="hero" image-source="sideimage.jpg" class="side-image">
         <span slot="headline">This is the Headline</span>
         <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro
           text.
