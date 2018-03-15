@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+  ~  @license
+  ~    Copyright 2017 Brigham Young University
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>byu-random-content Demo</title>
+
+  <link rel="stylesheet" href="../byu-random-content.min.css">
+  <script defer src="../byu-random-content.min.js"></script>
+
+  <link href="https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.css" rel="stylesheet" />
+  <script async src="https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+  <h1>Random Content Rotator</h1>
+  <byu-random-content id="random-content">
+    <template>
+      <byu-hero-banner id="hero" image-source="https://admissions.byu.edu/sites/admissions1/files/winter.jpg" video-source="https://www.youtube.com/watch?v=uTJAeSttacU"
+        class="video-hero">
+        <span slot="headline">This is the Headline</span>
+        <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro
+          text.
+        </span>
+        <a slot="read-more" href="http://www.google.com">Read More</a>
+      </byu-hero-banner>
+    </template>
+    <template>
+      <byu-hero-banner id="hero" image-source="dark-image2.jpg" video-source="websitehero.mp4" class="video-hero">
+        <span slot="headline">This is the Headline</span>
+        <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro
+          text.
+        </span>
+        <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+      </byu-hero-banner>
+    </template>
+    <template>
+      <byu-hero-banner id="hero" image-source="sideimage.jpg" class="side-image">
+        <span slot="headline">This is the Headline</span>
+        <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro
+          text.
+        </span>
+        <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+      </byu-hero-banner>
+    </template>
+    <template>
+      <byu-hero-banner id="hero" image-source="dark-image.jpg" class="transparent-overlay">
+        <span slot="headline">This is the Headline</span>
+        <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro
+          text.
+        </span>
+        <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+      </byu-hero-banner>
+    </template>
+    <template>
+      <byu-hero-banner id="hero" image-source="dark-image.jpg" class="transparent-overlay byu-hero-right">
+        <span slot="headline">This is the Headline</span>
+        <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro
+          text.
+        </span>
+        <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+      </byu-hero-banner>
+    </template>
+  </byu-random-content>
+  </template>
+</body>
+
+</html>
